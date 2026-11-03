@@ -97,6 +97,68 @@
       display: block;
     }
 
+
+    .nav {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: var(--red);
+    }
+
+    .rankings-list {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1.1rem;
+    }
+
+    .rankings-card {
+      display: block;
+      text-decoration: none;
+      background: var(--navy-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .rankings-card:hover {
+      border-color: var(--border);
+      transform: translateY(-1px);
+    }
+
+    .rankings-card .week {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.3rem;
+    }
+
+    .rankings-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .rankings-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
     .live-pill {
       font-size: 0.7rem;
       font-weight: 700;
@@ -375,13 +437,17 @@
 
   <div class="wrap">
     <header class="topbar">
-      <a class="logo" href="#">
+      <a class="logo" href="index.html">
         <span class="logo-mark" aria-hidden="true">
           <img src="assets/fll-logo.jpg" alt="" width="40" height="40" />
         </span>
         Fantasy Lifeline
       </a>
-      <span class="live-pill">Faceless FF</span>
+      <nav class="nav" aria-label="Primary">
+        <a href="week-8.html">Week 8</a>
+        <a href="week-9.html">Week 9</a>
+        <span class="live-pill">Faceless FF</span>
+      </nav>
     </header>
 
     <section class="hero" style="background: transparent; border: none; padding-left: 0; padding-right: 0; margin-top: 0;">
@@ -400,6 +466,25 @@
         <span class="tag">Under 60s</span>
         <span class="tag">Weekly</span>
         <span class="tag">No hype</span>
+      </div>
+    </section>
+
+
+    <section id="rankings" aria-labelledby="rankings-heading">
+      <div class="section-label">Rankings</div>
+      <h2 id="rankings-heading">Weekly lists, graded every Tuesday</h2>
+      <p class="about-copy">Full PPR rankings with sleepers and busts. Last week’s list stays up with the actual finishes so you can see the receipts.</p>
+      <div class="rankings-list">
+        <a class="rankings-card" href="week-9.html">
+          <div class="week">Week 9 · Full PPR</div>
+          <h3>Current rankings</h3>
+          <p>QB/RB/WR/TE lists, sleepers and busts. PIT &amp; TEN on bye. Results post next Tuesday.</p>
+        </a>
+        <a class="rankings-card" href="week-8.html">
+          <div class="week">Week 8 · Graded (half-PPR)</div>
+          <h3>Report card</h3>
+          <p>Our ranks vs. actual finishes and points, plus sleeper and bust results.</p>
+        </a>
       </div>
     </section>
 
@@ -448,6 +533,7 @@
 
     <footer>
       <p><strong>© 2026 Fantasy Lifeline.</strong> Informational only, not betting advice. 21+. Not affiliated with the NFL.</p>
+      <p style="margin-top:0.5rem"><a href="week-9.html" style="color:var(--red);font-weight:700;text-decoration:none">Week 9</a> · <a href="week-8.html" style="color:var(--red);font-weight:700;text-decoration:none">Week 8</a></p>
     </footer>
   </div>
 </body>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fantasy Lifeline Week 9 full PPR rankings — sleepers, busts, and bye teams." />
+  <title>Week 9 Rankings — Fantasy Lifeline</title>
+  <link rel="icon" type="image/jpeg" href="assets/fll-logo.jpg" />
+  <style>
+    :root {
+      --navy: #0a1628;
+      --navy-mid: #12203a;
+      --navy-card: #152744;
+      --red: #E0182D;
+      --red-dim: #B31224;
+      --text: #f0f4fa;
+      --muted: #9aadc4;
+      --border: rgba(224, 24, 45, 0.25);
+      --radius: 14px;
+      --max: 960px;
+      --hit: #3dd68c;
+      --miss: #ff6b6b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    .field-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.07;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80' viewBox='0 0 120 80'%3E%3Crect fill='%230a1628' width='120' height='80'/%3E%3Cpath d='M0 40h120M60 0v80' stroke='%23E0182D' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='60' cy='40' r='12' stroke='%23E0182D' stroke-width='1.5' fill='none'/%3E%3Cpath d='M20 10v60M100 10v60' stroke='%23E0182D' stroke-width='1' fill='none' opacity='0.6'/%3E%3C/svg%3E");
+      background-size: 120px 80px;
+    }
+    .wrap { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding: 0 1.25rem 3rem; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 0 0.5rem; gap: 1rem; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--text); font-weight: 800; letter-spacing: 0.02em; font-size: 1.05rem; }
+    .logo-mark { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; display: block; box-shadow: 0 0 18px rgba(224, 24, 45, 0.35); flex-shrink: 0; }
+    .logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .nav { display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center; }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 700; }
+    .nav a:hover, .nav a.active { color: var(--red); }
+    .live-pill { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: var(--red); padding: 0.28rem 0.65rem; border-radius: 999px; }
+    section { margin-top: 2rem; padding: 1.75rem 1.4rem; background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius); }
+    .section-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-bottom: 0.55rem; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.6rem; }
+    h2 { font-size: clamp(1.2rem, 3vw, 1.45rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.7rem; }
+    .lede { color: var(--muted); max-width: 640px; margin-bottom: 1rem; }
+    .note { font-size: 0.9rem; color: var(--muted); background: rgba(224,24,45,0.08); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 1rem; margin: 1rem 0; }
+    .grade-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.5rem; }
+    .grade-card { background: var(--navy-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1rem; }
+    .grade-card .pos { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 0.35rem; }
+    .grade-card .stat { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .grade-card .explain { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+    .pos-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+    .pos-tabs a { text-decoration: none; font-size: 0.8rem; font-weight: 800; color: var(--red); border: 1px solid var(--border); background: rgba(224,24,45,0.06); padding: 0.35rem 0.8rem; border-radius: 999px; }
+    .pos-tabs a:hover { background: rgba(224,24,45,0.15); }
+    .table-wrap { overflow-x: auto; margin-top: 0.75rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 520px; }
+    th, td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    th { background: var(--navy-card); color: var(--muted); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 800; position: sticky; top: 0; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(224,24,45,0.04); }
+    .num { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); }
+    .muted { color: var(--muted); }
+    .hit { color: var(--hit); font-weight: 800; }
+    .miss { color: var(--miss); font-weight: 800; }
+    .dnp { color: var(--muted); font-style: italic; }
+    .badge { display: inline-block; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.15rem 0.45rem; border-radius: 999px; }
+    .badge-bye { background: rgba(154,173,196,0.15); color: var(--muted); border: 1px solid rgba(154,173,196,0.3); }
+    footer { text-align: center; padding: 2.5rem 1rem 1.5rem; color: var(--muted); font-size: 0.8rem; line-height: 1.6; }
+    footer strong { color: var(--text); font-weight: 700; }
+    footer a { color: var(--red); text-decoration: none; font-weight: 700; }
+    @media (max-width: 520px) {
+      section { padding: 1.35rem 1rem; }
+      th, td { padding: 0.45rem 0.5rem; }
+    }
+</style>
+</head>
+<body>
+  <div class="field-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">
+          <img src="assets/fll-logo.jpg" alt="" width="40" height="40" />
+        </span>
+        Fantasy Lifeline
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="week-8.html">Week 8</a>
+        <a href="week-9.html" class="active">Week 9</a>
+      </nav>
+    </header>
+
+    <section style="margin-top:1.25rem">
+      <div class="section-label">Week 9 · Full PPR</div>
+      <h1>Week 9 rankings</h1>
+      <p class="lede">Built Tuesday, Nov 3, 2026 (America/Detroit). Full PPR only. Lists update daily for injuries and news.</p>
+      <div class="note"><strong>Results:</strong> Actual finishes and the grade card post next <strong>Tuesday</strong> after Monday Night Football.</div>
+      <p class="lede" style="margin-bottom:0.4rem"><span class="badge badge-bye">Bye</span> Pittsburgh Steelers &amp; Tennessee Titans — no PIT or TEN players on these lists. TNF: JAX @ BAL (locks Thursday).</p>
+    </section>
+
+    <div class="pos-tabs" role="navigation" aria-label="Positions">
+      <a href="#qb">QB (15)</a>
+      <a href="#rb">RB (30)</a>
+      <a href="#wr">WR (48)</a>
+      <a href="#te">TE (24)</a>
+      <a href="#sleepers">Sleepers</a>
+      <a href="#busts">Busts</a>
+    </div>
+
+    <section id="qb" aria-labelledby="qb-heading">
+      <div class="section-label">QB · 15 ranked · Full PPR proj</div>
+      <h2 id="qb-heading">Quarterbacks</h2>
+      <div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Player</th><th>Team</th><th>Opp</th><th>Proj</th><th>Note</th></tr></thead><tbody>
+<tr><td class='num'>1</td><td>Joe Burrow</td><td class='muted'>CIN</td><td class='muted'>at ATL</td><td class='num'>21.2</td><td class='muted' style='font-size:0.8rem'>Margin#3; IT 27.65; Madrid 9:30 AM ET kickoff</td></tr>
+<tr><td class='num'>2</td><td>Brock Purdy</td><td class='muted'>SF</td><td class='muted'>vs. LV</td><td class='num'>21.7</td><td class='muted' style='font-size:0.8rem'>Margin#1; IT 30.75</td></tr>
+<tr><td class='num'>3</td><td>Josh Allen</td><td class='muted'>BUF</td><td class='muted'>at MIN</td><td class='num'>20.1</td><td class='muted' style='font-size:0.8rem'>Margin#2</td></tr>
+<tr><td class='num'>4</td><td>Drake Maye</td><td class='muted'>NE</td><td class='muted'>vs. GB</td><td class='num'>19.3</td><td class='muted' style='font-size:0.8rem'>Margin#4</td></tr>
+<tr><td class='num'>5</td><td>Dak Prescott</td><td class='muted'>DAL</td><td class='muted'>at IND</td><td class='num'>18.9</td><td class='muted' style='font-size:0.8rem'>Margin#9; IT 28.75</td></tr>
+<tr><td class='num'>6</td><td>Trevor Lawrence</td><td class='muted'>JAX</td><td class='muted'>at BAL</td><td class='num'>19</td><td class='muted' style='font-size:0.8rem'>Margin#7; TNF Thu 11/5 — locks early</td></tr>
+<tr><td class='num'>7</td><td>Jared Goff</td><td class='muted'>DET</td><td class='muted'>at MIA</td><td class='num'>18.8</td><td class='muted' style='font-size:0.8rem'>IT 28.75</td></tr>
+<tr><td class='num'>8</td><td>Patrick Mahomes II</td><td class='muted'>KC</td><td class='muted'>vs. NYJ</td><td class='num'>19.4</td><td class='muted' style='font-size:0.8rem'>Margin#5; IT 28.0</td></tr>
+<tr><td class='num'>9</td><td>Matthew Stafford</td><td class='muted'>LAR</td><td class='muted'>at WAS</td><td class='num'>17.4</td><td class='muted' style='font-size:0.8rem'>Margin#10; soft vs WAS (Margin); TBD: arm TBD; McVay deferring to Stafford — no fade un…</td></tr>
+<tr><td class='num'>10</td><td>Jayden Daniels</td><td class='muted'>WAS</td><td class='muted'>vs. LAR</td><td class='num'>17.8</td><td class='muted' style='font-size:0.8rem'>consensus blend</td></tr>
+<tr><td class='num'>11</td><td>Malik Willis</td><td class='muted'>MIA</td><td class='muted'>vs. DET</td><td class='num'>16.9</td><td class='muted' style='font-size:0.8rem'>soft vs DET (Margin)</td></tr>
+<tr><td class='num'>12</td><td>Caleb Williams</td><td class='muted'>CHI</td><td class='muted'>vs. TB</td><td class='num'>17.1</td><td class='muted' style='font-size:0.8rem'>consensus blend</td></tr>
+<tr><td class='num'>13</td><td>Jordan Love</td><td class='muted'>GB</td><td class='muted'>at NE</td><td class='num'>16.9</td><td class='muted' style='font-size:0.8rem'>consensus blend</td></tr>
+<tr><td class='num'>14</td><td>Sam Darnold</td><td class='muted'>SEA</td><td class='muted'>vs. ARI</td><td class='num'>17.4</td><td class='muted' style='font-size:0.8rem'>Margin#8; IT 27.75</td></tr>
+<tr><td class='num'>15</td><td>Tyler Shough</td><td class='muted'>NO</td><td class='muted'>vs. CLE</td><td class='num'>17.1</td><td class='muted' style='font-size:0.8rem'>Margin#6</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section id="rb" aria-labelledby="rb-heading">
+      <div class="section-label">RB · 30 ranked · Full PPR proj</div>
+      <h2 id="rb-heading">Running backs</h2>
+      <div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Player</th><th>Team</th><th>Opp</th><th>Proj</th><th>Note</th></tr></thead><tbody>
+<tr><td class='num'>1</td><td>Jahmyr Gibbs</td><td class='muted'>DET</td><td class='muted'>at MIA</td><td class='num'>25.5</td><td class='muted' style='font-size:0.8rem'>Margin#1; IT 28.75; L2 snap 83%, 31.0 opp/g</td></tr>
+<tr><td class='num'>2</td><td>Kenneth Walker III</td><td class='muted'>KC</td><td class='muted'>vs. NYJ</td><td class='num'>21.2</td><td class='muted' style='font-size:0.8rem'>Margin#3; IT 28.0; L3 snap 76%, 22.3 opp/g</td></tr>
+<tr><td class='num'>3</td><td>Christian McCaffrey</td><td class='muted'>SF</td><td class='muted'>vs. LV</td><td class='num'>22.5</td><td class='muted' style='font-size:0.8rem'>Margin#4; IT 30.75; TBD: hamstring TBD; first practice report Wed — no fade until Fri t…</td></tr>
+<tr><td class='num'>4</td><td>Bijan Robinson</td><td class='muted'>ATL</td><td class='muted'>vs. CIN</td><td class='num'>21.1</td><td class='muted' style='font-size:0.8rem'>Margin#2; Madrid 9:30 AM ET kickoff; L3 snap 80%, 18.7 opp/g</td></tr>
+<tr><td class='num'>5</td><td>Javonte Williams</td><td class='muted'>DAL</td><td class='muted'>at IND</td><td class='num'>18.3</td><td class='muted' style='font-size:0.8rem'>Margin#5; IT 28.75; L3 snap 71%, 21.3 opp/g</td></tr>
+<tr><td class='num'>6</td><td>Chuba Hubbard</td><td class='muted'>CAR</td><td class='muted'>vs. DEN</td><td class='num'>17</td><td class='muted' style='font-size:0.8rem'>Margin#10; L3 snap 82%, 24.0 opp/g</td></tr>
+<tr><td class='num'>7</td><td>Bucky Irving</td><td class='muted'>TB</td><td class='muted'>at CHI</td><td class='num'>15.7</td><td class='muted' style='font-size:0.8rem'>Margin#8; L3 snap 65%, 25.0 opp/g</td></tr>
+<tr><td class='num'>8</td><td>Kyren Williams</td><td class='muted'>LAR</td><td class='muted'>at WAS</td><td class='num'>17.3</td><td class='muted' style='font-size:0.8rem'>Margin#6; L3 snap 64%, 17.0 opp/g</td></tr>
+<tr><td class='num'>9</td><td>Jonathan Taylor</td><td class='muted'>IND</td><td class='muted'>vs. DAL</td><td class='num'>18.2</td><td class='muted' style='font-size:0.8rem'>Margin#7; soft vs DAL (Margin); L3 snap 70%, 19.7 opp/g</td></tr>
+<tr><td class='num'>10</td><td>Chase Brown</td><td class='muted'>CIN</td><td class='muted'>at ATL</td><td class='num'>16.6</td><td class='muted' style='font-size:0.8rem'>Margin#9; IT 27.65; Madrid 9:30 AM ET kickoff; L2 snap 72%, 18.5 opp/g</td></tr>
+<tr><td class='num'>11</td><td>Josh Jacobs</td><td class='muted'>GB</td><td class='muted'>at NE</td><td class='num'>14.7</td><td class='muted' style='font-size:0.8rem'>L2 snap 62%, 22.5 opp/g</td></tr>
+<tr><td class='num'>12</td><td>Bhayshul Tuten</td><td class='muted'>JAX</td><td class='muted'>at BAL</td><td class='num'>14.1</td><td class='muted' style='font-size:0.8rem'>TNF Thu 11/5 — locks early; TBD: ankle/foot — DNP Mon on short TNF week — no fade until…</td></tr>
+<tr><td class='num'>13</td><td>D&#x27;Andre Swift</td><td class='muted'>CHI</td><td class='muted'>vs. TB</td><td class='num'>14.3</td><td class='muted' style='font-size:0.8rem'>L3 snap 74%, 25.7 opp/g</td></tr>
+<tr><td class='num'>14</td><td>Jonah Coleman</td><td class='muted'>DEN</td><td class='muted'>at CAR</td><td class='num'>15.8</td><td class='muted' style='font-size:0.8rem'>soft vs CAR (Margin); L2 snap 58%, 13.5 opp/g</td></tr>
+<tr><td class='num'>15</td><td>James Cook III</td><td class='muted'>BUF</td><td class='muted'>at MIN</td><td class='num'>13</td><td class='muted' style='font-size:0.8rem'>TBD: head eval Wk8, cleared to return — no fade until Fri trend; L2 snap 60%, 24.5 opp/g</td></tr>
+<tr><td class='num'>16</td><td>Rhamondre Stevenson</td><td class='muted'>NE</td><td class='muted'>vs. GB</td><td class='num'>13.5</td><td class='muted' style='font-size:0.8rem'>L3 snap 68%, 15.7 opp/g</td></tr>
+<tr><td class='num'>17</td><td>Ollie Gordon II</td><td class='muted'>MIA</td><td class='muted'>vs. DET</td><td class='num'>12.7</td><td class='muted' style='font-size:0.8rem'>L2 snap 82%, 24.0 opp/g</td></tr>
+<tr><td class='num'>18</td><td>Derrick Henry</td><td class='muted'>BAL</td><td class='muted'>vs. JAX</td><td class='num'>13.4</td><td class='muted' style='font-size:0.8rem'>low IT 16.5; TNF Thu 11/5 — locks early; L3 snap 51%, 16.7 opp/g</td></tr>
+<tr><td class='num'>19</td><td>Ashton Jeanty</td><td class='muted'>LV</td><td class='muted'>at SF</td><td class='num'>12.9</td><td class='muted' style='font-size:0.8rem'>L3 snap 56%, 12.7 opp/g</td></tr>
+<tr><td class='num'>20</td><td>Quinshon Judkins</td><td class='muted'>CLE</td><td class='muted'>at NO</td><td class='num'>12.8</td><td class='muted' style='font-size:0.8rem'>L2 snap 46%, 15.5 opp/g</td></tr>
+<tr><td class='num'>21</td><td>Saquon Barkley</td><td class='muted'>PHI</td><td class='muted'>vs. NYG</td><td class='num'>12.4</td><td class='muted' style='font-size:0.8rem'>low IT 18.0; TBD: hamstring/back — in and out of Wk8 — no fade until Fri trend; L2 snap…</td></tr>
+<tr><td class='num'>22</td><td>Cam Skattebo</td><td class='muted'>NYG</td><td class='muted'>at PHI</td><td class='num'>11.3</td><td class='muted' style='font-size:0.8rem'>TBD: hamstring TBD; worked off to side Mon — no fade until Fri trend; L2 snap 32%, 9.0 …</td></tr>
+<tr><td class='num'>23</td><td>Rachaad White</td><td class='muted'>WAS</td><td class='muted'>vs. LAR</td><td class='num'>11.7</td><td class='muted' style='font-size:0.8rem'>L2 snap 58%, 13.0 opp/g</td></tr>
+<tr><td class='num'>24</td><td>Braelon Allen</td><td class='muted'>NYJ</td><td class='muted'>at KC</td><td class='num'>9</td><td class='muted' style='font-size:0.8rem'>low IT 18.5; L3 snap 83%, 22.0 opp/g</td></tr>
+<tr><td class='num'>25</td><td>Zach Charbonnet</td><td class='muted'>SEA</td><td class='muted'>vs. ARI</td><td class='num'>11.7</td><td class='muted' style='font-size:0.8rem'>IT 27.75; L1 snap 37%, 10.0 opp/g</td></tr>
+<tr><td class='num'>26</td><td>Blake Corum</td><td class='muted'>LAR</td><td class='muted'>at WAS</td><td class='num'>9.4</td><td class='muted' style='font-size:0.8rem'>L3 snap 35%, 13.7 opp/g</td></tr>
+<tr><td class='num'>27</td><td>Tyler Allgeier</td><td class='muted'>ARI</td><td class='muted'>at SEA</td><td class='num'>10.9</td><td class='muted' style='font-size:0.8rem'>low IT 16.75; L3 snap 54%, 15.7 opp/g</td></tr>
+<tr><td class='num'>28</td><td>Aaron Jones Sr.</td><td class='muted'>MIN</td><td class='muted'>vs. BUF</td><td class='num'>10</td><td class='muted' style='font-size:0.8rem'>soft vs BUF (Margin); L2 snap 33%, 8.0 opp/g</td></tr>
+<tr><td class='num'>29</td><td>Breece Hall</td><td class='muted'>NYJ</td><td class='muted'>at KC</td><td class='num'>10.9</td><td class='muted' style='font-size:0.8rem'>low IT 18.5; TBD: quad TBD; inactive 5 straight, Jets hoping for return — no fade until…</td></tr>
+<tr><td class='num'>30</td><td>Woody Marks</td><td class='muted'>HOU</td><td class='muted'>at LAC</td><td class='num'>9.3</td><td class='muted' style='font-size:0.8rem'>L2 snap 83%, 19.0 opp/g</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section id="wr" aria-labelledby="wr-heading">
+      <div class="section-label">WR · 48 ranked · Full PPR proj</div>
+      <h2 id="wr-heading">Wide receivers</h2>
+      <div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Player</th><th>Team</th><th>Opp</th><th>Proj</th><th>Note</th></tr></thead><tbody>
+<tr><td class='num'>1</td><td>Jaxon Smith-Njigba</td><td class='muted'>SEA</td><td class='muted'>vs. ARI</td><td class='num'>24.3</td><td class='muted' style='font-size:0.8rem'>Margin#1; IT 27.75; L3 tgt share 37%, snap 88%</td></tr>
+<tr><td class='num'>2</td><td>CeeDee Lamb</td><td class='muted'>DAL</td><td class='muted'>at IND</td><td class='num'>19.7</td><td class='muted' style='font-size:0.8rem'>Margin#4; IT 28.75; L3 tgt share 40%, snap 82%</td></tr>
+<tr><td class='num'>3</td><td>Puka Nacua</td><td class='muted'>LAR</td><td class='muted'>at WAS</td><td class='num'>22.9</td><td class='muted' style='font-size:0.8rem'>Margin#2; Stafford arm TBD (McVay deferring to him) (+1.0); L3 tgt share 35%, snap 90%</td></tr>
+<tr><td class='num'>4</td><td>Ja&#x27;Marr Chase</td><td class='muted'>CIN</td><td class='muted'>at ATL</td><td class='num'>20.1</td><td class='muted' style='font-size:0.8rem'>Margin#3; IT 27.65; Madrid 9:30 AM ET kickoff; L2 tgt share 30%, snap 91%</td></tr>
+<tr><td class='num'>5</td><td>Amon-Ra St. Brown</td><td class='muted'>DET</td><td class='muted'>at MIA</td><td class='num'>18.3</td><td class='muted' style='font-size:0.8rem'>Margin#6; IT 28.75; TBD: left briefly Wk8 and returned — no fade until Fri trend; L2 tg…</td></tr>
+<tr><td class='num'>6</td><td>Chris Olave</td><td class='muted'>NO</td><td class='muted'>vs. CLE</td><td class='num'>16.4</td><td class='muted' style='font-size:0.8rem'>Margin#7; L2 tgt share 25%, snap 68%</td></tr>
+<tr><td class='num'>7</td><td>Malik Nabers</td><td class='muted'>NYG</td><td class='muted'>at PHI</td><td class='num'>16.5</td><td class='muted' style='font-size:0.8rem'>backup QB J.J. McCarthy (Dart on IR) (+1.5); L2 tgt share 34%, snap 79%</td></tr>
+<tr><td class='num'>8</td><td>Tee Higgins</td><td class='muted'>CIN</td><td class='muted'>at ATL</td><td class='num'>15.8</td><td class='muted' style='font-size:0.8rem'>IT 27.65; Madrid 9:30 AM ET kickoff; L2 tgt share 24%, snap 87%</td></tr>
+<tr><td class='num'>9</td><td>Drake London</td><td class='muted'>ATL</td><td class='muted'>vs. CIN</td><td class='num'>15.9</td><td class='muted' style='font-size:0.8rem'>Margin#8; Madrid 9:30 AM ET kickoff; TBD: head — left Wk8 1Q and returned — no fade unt…</td></tr>
+<tr><td class='num'>10</td><td>Justin Jefferson</td><td class='muted'>MIN</td><td class='muted'>vs. BUF</td><td class='num'>15.6</td><td class='muted' style='font-size:0.8rem'>Margin#9; Kyler Murray hamstring TBD, Wentz next (+1.0); L2 tgt share 31%, snap 95%</td></tr>
+<tr><td class='num'>11</td><td>Christian Watson</td><td class='muted'>GB</td><td class='muted'>at NE</td><td class='num'>15.3</td><td class='muted' style='font-size:0.8rem'>TBD: fractured rib TBD; &quot;we&#x27;ll see as the week goes&quot; — no fade until Fri trend; L3 tgt …</td></tr>
+<tr><td class='num'>12</td><td>Matthew Golden</td><td class='muted'>GB</td><td class='muted'>at NE</td><td class='num'>15.4</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 31%, snap 85%</td></tr>
+<tr><td class='num'>13</td><td>Mike Evans</td><td class='muted'>SF</td><td class='muted'>vs. LV</td><td class='num'>15.4</td><td class='muted' style='font-size:0.8rem'>Margin#10; IT 30.75; TBD: Achilles tendinitis TBD, eyeing return (inactive Wk7, bye Wk8…</td></tr>
+<tr><td class='num'>14</td><td>Luther Burden III</td><td class='muted'>CHI</td><td class='muted'>vs. TB</td><td class='num'>15.1</td><td class='muted' style='font-size:0.8rem'>Margin#5; L3 tgt share 21%, snap 52%</td></tr>
+<tr><td class='num'>15</td><td>Nico Collins</td><td class='muted'>HOU</td><td class='muted'>at LAC</td><td class='num'>14.7</td><td class='muted' style='font-size:0.8rem'>L2 tgt share 17%, snap 70%</td></tr>
+<tr><td class='num'>16</td><td>Rashee Rice</td><td class='muted'>KC</td><td class='muted'>vs. NYJ</td><td class='num'>14.3</td><td class='muted' style='font-size:0.8rem'>IT 28.0; L1 tgt share 21%, snap 57%</td></tr>
+<tr><td class='num'>17</td><td>Parker Washington</td><td class='muted'>JAX</td><td class='muted'>at BAL</td><td class='num'>13.9</td><td class='muted' style='font-size:0.8rem'>TNF Thu 11/5 — locks early; L2 tgt share 19%, snap 70%</td></tr>
+<tr><td class='num'>18</td><td>Tetairoa McMillan</td><td class='muted'>CAR</td><td class='muted'>vs. DEN</td><td class='num'>13.4</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 26%, snap 78%</td></tr>
+<tr><td class='num'>19</td><td>George Pickens</td><td class='muted'>DAL</td><td class='muted'>at IND</td><td class='num'>13.2</td><td class='muted' style='font-size:0.8rem'>IT 28.75; L3 tgt share 19%, snap 69%</td></tr>
+<tr><td class='num'>20</td><td>Zay Flowers</td><td class='muted'>BAL</td><td class='muted'>vs. JAX</td><td class='num'>14.5</td><td class='muted' style='font-size:0.8rem'>low IT 16.5; QB chaos: Lamar IR, Huntley &quot;probably&quot; out, Fagnano (ankle) limited Mon (+…</td></tr>
+<tr><td class='num'>21</td><td>Garrett Wilson</td><td class='muted'>NYJ</td><td class='muted'>at KC</td><td class='num'>13.1</td><td class='muted' style='font-size:0.8rem'>low IT 18.5; L3 tgt share 23%, snap 88%</td></tr>
+<tr><td class='num'>22</td><td>Jameson Williams</td><td class='muted'>DET</td><td class='muted'>at MIA</td><td class='num'>12.1</td><td class='muted' style='font-size:0.8rem'>IT 28.75; L2 tgt share 27%, snap 84%</td></tr>
+<tr><td class='num'>23</td><td>Jalen Coker</td><td class='muted'>CAR</td><td class='muted'>vs. DEN</td><td class='num'>12.5</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 22%, snap 76%</td></tr>
+<tr><td class='num'>24</td><td>Stefon Diggs</td><td class='muted'>WAS</td><td class='muted'>vs. LAR</td><td class='num'>12</td><td class='muted' style='font-size:0.8rem'>L2 tgt share 21%, snap 63%</td></tr>
+<tr><td class='num'>25</td><td>Michael Wilson</td><td class='muted'>ARI</td><td class='muted'>at SEA</td><td class='num'>11.9</td><td class='muted' style='font-size:0.8rem'>low IT 16.75; backup QB Minshew starting (replaced Brissett Wk8) (+1.5); TBD: ribs TBD …</td></tr>
+<tr><td class='num'>26</td><td>Jaylen Waddle</td><td class='muted'>DEN</td><td class='muted'>at CAR</td><td class='num'>11.7</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 26%, snap 55%</td></tr>
+<tr><td class='num'>27</td><td>Keenan Allen</td><td class='muted'>IND</td><td class='muted'>vs. DAL</td><td class='num'>11.1</td><td class='muted' style='font-size:0.8rem'>soft vs DAL (Margin); L3 tgt share 22%, snap 58%</td></tr>
+<tr><td class='num'>28</td><td>DJ Moore</td><td class='muted'>BUF</td><td class='muted'>at MIN</td><td class='num'>10.9</td><td class='muted' style='font-size:0.8rem'>TBD: knee/AC sprain TBD; left Wk8 — no fade until Fri trend; L1 tgt share 21%, snap 66%</td></tr>
+<tr><td class='num'>29</td><td>Denzel Boston</td><td class='muted'>CLE</td><td class='muted'>at NO</td><td class='num'>11</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 23%, snap 88%</td></tr>
+<tr><td class='num'>30</td><td>Caleb Douglas</td><td class='muted'>MIA</td><td class='muted'>vs. DET</td><td class='num'>10.1</td><td class='muted' style='font-size:0.8rem'>soft vs DET (Margin); L2 tgt share 17%, snap 77%</td></tr>
+<tr><td class='num'>31</td><td>Tre Tucker</td><td class='muted'>LV</td><td class='muted'>at SF</td><td class='num'>10.7</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 17%, snap 69%</td></tr>
+<tr><td class='num'>32</td><td>Malik Washington</td><td class='muted'>MIA</td><td class='muted'>vs. DET</td><td class='num'>10.8</td><td class='muted' style='font-size:0.8rem'>soft vs DET (Margin); L2 tgt share 17%, snap 77%</td></tr>
+<tr><td class='num'>33</td><td>Ladd McConkey</td><td class='muted'>LAC</td><td class='muted'>vs. HOU</td><td class='num'>10.4</td><td class='muted' style='font-size:0.8rem'>low IT 18.0; L2 tgt share 11%, snap 51%</td></tr>
+<tr><td class='num'>34</td><td>KC Concepcion Jr.</td><td class='muted'>CLE</td><td class='muted'>at NO</td><td class='num'>10.6</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 21%, snap 81%</td></tr>
+<tr><td class='num'>35</td><td>Josh Downs</td><td class='muted'>IND</td><td class='muted'>vs. DAL</td><td class='num'>10.4</td><td class='muted' style='font-size:0.8rem'>soft vs DAL (Margin); L3 tgt share 19%, snap 84%</td></tr>
+<tr><td class='num'>36</td><td>Deebo Samuel Sr.</td><td class='muted'>SF</td><td class='muted'>vs. LV</td><td class='num'>9.7</td><td class='muted' style='font-size:0.8rem'>IT 30.75; TBD: hamstring TBD, eyeing return (inactive Wk7) — no fade until Fri trend</td></tr>
+<tr><td class='num'>37</td><td>Rome Odunze</td><td class='muted'>CHI</td><td class='muted'>vs. TB</td><td class='num'>10</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 15%, snap 93%</td></tr>
+<tr><td class='num'>38</td><td>DeMario Douglas</td><td class='muted'>NE</td><td class='muted'>vs. GB</td><td class='num'>9.8</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 19%, snap 63%</td></tr>
+<tr><td class='num'>39</td><td>Emeka Egbuka</td><td class='muted'>TB</td><td class='muted'>at CHI</td><td class='num'>10.4</td><td class='muted' style='font-size:0.8rem'>soft vs CHI (Margin); TBD: foot TBD; inactive 2 straight — no fade until Fri trend; L1 …</td></tr>
+<tr><td class='num'>40</td><td>Jordan Addison</td><td class='muted'>MIN</td><td class='muted'>vs. BUF</td><td class='num'>9.1</td><td class='muted' style='font-size:0.8rem'>Kyler Murray hamstring TBD, Wentz next (+1.0); L2 tgt share 21%, snap 91%</td></tr>
+<tr><td class='num'>41</td><td>Jakobi Meyers</td><td class='muted'>JAX</td><td class='muted'>at BAL</td><td class='num'>9.1</td><td class='muted' style='font-size:0.8rem'>TNF Thu 11/5 — locks early; TBD: hamstring — limited Mon (played through it Wk8) — no f…</td></tr>
+<tr><td class='num'>42</td><td>Devaughn Vele</td><td class='muted'>NO</td><td class='muted'>vs. CLE</td><td class='num'>8.7</td><td class='muted' style='font-size:0.8rem'>L2 tgt share 17%, snap 91%</td></tr>
+<tr><td class='num'>43</td><td>Omar Cooper Jr.</td><td class='muted'>NYJ</td><td class='muted'>at KC</td><td class='num'>8.2</td><td class='muted' style='font-size:0.8rem'>low IT 18.5; L3 tgt share 14%, snap 75%</td></tr>
+<tr><td class='num'>44</td><td>Chris Godwin Jr.</td><td class='muted'>TB</td><td class='muted'>at CHI</td><td class='num'>8.5</td><td class='muted' style='font-size:0.8rem'>soft vs CHI (Margin); L3 tgt share 33%, snap 82%</td></tr>
+<tr><td class='num'>45</td><td>DeVonta Smith</td><td class='muted'>PHI</td><td class='muted'>vs. NYG</td><td class='num'>12</td><td class='muted' style='font-size:0.8rem'>low IT 18.0; backup QB Tanner McKee (Hurts out for season) (+1.5); TBD: hamstring TBD; …</td></tr>
+<tr><td class='num'>46</td><td>Xavier Worthy</td><td class='muted'>KC</td><td class='muted'>vs. NYJ</td><td class='num'>9.2</td><td class='muted' style='font-size:0.8rem'>IT 28.0; L3 tgt share 20%, snap 88%</td></tr>
+<tr><td class='num'>47</td><td>Ryan Flournoy</td><td class='muted'>DAL</td><td class='muted'>at IND</td><td class='num'>8.8</td><td class='muted' style='font-size:0.8rem'>IT 28.75; L3 tgt share 15%, snap 78%</td></tr>
+<tr><td class='num'>48</td><td>Adonai Mitchell</td><td class='muted'>NYJ</td><td class='muted'>at KC</td><td class='num'>8.8</td><td class='muted' style='font-size:0.8rem'>low IT 18.5; L2 tgt share 20%, snap 53%</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section id="te" aria-labelledby="te-heading">
+      <div class="section-label">TE · 24 ranked · Full PPR proj</div>
+      <h2 id="te-heading">Tight ends</h2>
+      <div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Player</th><th>Team</th><th>Opp</th><th>Proj</th><th>Note</th></tr></thead><tbody>
+<tr><td class='num'>1</td><td>Brock Bowers</td><td class='muted'>LV</td><td class='muted'>at SF</td><td class='num'>17.1</td><td class='muted' style='font-size:0.8rem'>Margin#1; L3 tgt share 27%, snap 89%</td></tr>
+<tr><td class='num'>2</td><td>George Kittle</td><td class='muted'>SF</td><td class='muted'>vs. LV</td><td class='num'>16</td><td class='muted' style='font-size:0.8rem'>Margin#3; IT 30.75; L2 tgt share 27%, snap 90%</td></tr>
+<tr><td class='num'>3</td><td>Trey McBride</td><td class='muted'>ARI</td><td class='muted'>at SEA</td><td class='num'>15.4</td><td class='muted' style='font-size:0.8rem'>Margin#2; low IT 16.75; backup QB Minshew starting (replaced Brissett Wk8) (+1.5); L3 t…</td></tr>
+<tr><td class='num'>4</td><td>Harold Fannin Jr.</td><td class='muted'>CLE</td><td class='muted'>at NO</td><td class='num'>12</td><td class='muted' style='font-size:0.8rem'>Margin#9; L3 tgt share 23%, snap 86%</td></tr>
+<tr><td class='num'>5</td><td>Colston Loveland</td><td class='muted'>CHI</td><td class='muted'>vs. TB</td><td class='num'>11.5</td><td class='muted' style='font-size:0.8rem'>Margin#10; L3 tgt share 29%, snap 88%</td></tr>
+<tr><td class='num'>6</td><td>Sam LaPorta</td><td class='muted'>DET</td><td class='muted'>at MIA</td><td class='num'>12.6</td><td class='muted' style='font-size:0.8rem'>Margin#7; IT 28.75; L2 tgt share 13%, snap 95%</td></tr>
+<tr><td class='num'>7</td><td>Tyler Warren</td><td class='muted'>IND</td><td class='muted'>vs. DAL</td><td class='num'>11.9</td><td class='muted' style='font-size:0.8rem'>Margin#6; L1 tgt share 33%, snap 72%</td></tr>
+<tr><td class='num'>8</td><td>Travis Kelce</td><td class='muted'>KC</td><td class='muted'>vs. NYJ</td><td class='num'>12</td><td class='muted' style='font-size:0.8rem'>Margin#5; IT 28.0; L3 tgt share 20%, snap 76%</td></tr>
+<tr><td class='num'>9</td><td>Isaiah Likely</td><td class='muted'>NYG</td><td class='muted'>at PHI</td><td class='num'>12.4</td><td class='muted' style='font-size:0.8rem'>Margin#4; backup QB J.J. McCarthy (Dart on IR) (+1.5); L2 tgt share 20%, snap 89%</td></tr>
+<tr><td class='num'>10</td><td>Tucker Kraft</td><td class='muted'>GB</td><td class='muted'>at NE</td><td class='num'>11.2</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 17%, snap 85%</td></tr>
+<tr><td class='num'>11</td><td>T.J. Hockenson</td><td class='muted'>MIN</td><td class='muted'>vs. BUF</td><td class='num'>10.9</td><td class='muted' style='font-size:0.8rem'>Kyler Murray hamstring TBD, Wentz next (+1.0); L2 tgt share 19%, snap 80%</td></tr>
+<tr><td class='num'>12</td><td>Kyle Pitts Sr.</td><td class='muted'>ATL</td><td class='muted'>vs. CIN</td><td class='num'>9.6</td><td class='muted' style='font-size:0.8rem'>soft vs CIN (Margin); Madrid 9:30 AM ET kickoff; L3 tgt share 20%, snap 63%</td></tr>
+<tr><td class='num'>13</td><td>Dalton Kincaid</td><td class='muted'>BUF</td><td class='muted'>at MIN</td><td class='num'>9.3</td><td class='muted' style='font-size:0.8rem'>L2 tgt share 22%, snap 65%</td></tr>
+<tr><td class='num'>14</td><td>Dallas Goedert</td><td class='muted'>PHI</td><td class='muted'>vs. NYG</td><td class='num'>10.2</td><td class='muted' style='font-size:0.8rem'>low IT 18.0; backup QB Tanner McKee (Hurts out for season) (+1.5); L3 tgt share 18%, sn…</td></tr>
+<tr><td class='num'>15</td><td>Brenton Strange</td><td class='muted'>JAX</td><td class='muted'>at BAL</td><td class='num'>9.6</td><td class='muted' style='font-size:0.8rem'>TNF Thu 11/5 — locks early; L2 tgt share 14%, snap 64%</td></tr>
+<tr><td class='num'>16</td><td>Mike Gesicki</td><td class='muted'>CIN</td><td class='muted'>at ATL</td><td class='num'>9.1</td><td class='muted' style='font-size:0.8rem'>IT 27.65; Madrid 9:30 AM ET kickoff; L2 tgt share 8%, snap 53%</td></tr>
+<tr><td class='num'>17</td><td>Greg Dulcich</td><td class='muted'>MIA</td><td class='muted'>vs. DET</td><td class='num'>8.6</td><td class='muted' style='font-size:0.8rem'>soft vs DET (Margin); L2 tgt share 22%, snap 67%</td></tr>
+<tr><td class='num'>18</td><td>Juwan Johnson</td><td class='muted'>NO</td><td class='muted'>vs. CLE</td><td class='num'>9.3</td><td class='muted' style='font-size:0.8rem'>Margin#8; L2 tgt share 7%, snap 57%</td></tr>
+<tr><td class='num'>19</td><td>Tyler Higbee</td><td class='muted'>LAR</td><td class='muted'>at WAS</td><td class='num'>8.6</td><td class='muted' style='font-size:0.8rem'>soft vs WAS (Margin); Stafford arm TBD (McVay deferring to him) (+1.0); L3 tgt share 10…</td></tr>
+<tr><td class='num'>20</td><td>Chig Okonkwo</td><td class='muted'>WAS</td><td class='muted'>vs. LAR</td><td class='num'>7.8</td><td class='muted' style='font-size:0.8rem'>L2 tgt share 17%, snap 76%</td></tr>
+<tr><td class='num'>21</td><td>Dalton Schultz</td><td class='muted'>HOU</td><td class='muted'>at LAC</td><td class='num'>8.4</td><td class='muted' style='font-size:0.8rem'>L2 tgt share 20%, snap 49%</td></tr>
+<tr><td class='num'>22</td><td>Michael Mayer</td><td class='muted'>LV</td><td class='muted'>at SF</td><td class='num'>8</td><td class='muted' style='font-size:0.8rem'>L3 tgt share 18%, snap 80%</td></tr>
+<tr><td class='num'>23</td><td>Mason Taylor</td><td class='muted'>NYJ</td><td class='muted'>at KC</td><td class='num'>8.2</td><td class='muted' style='font-size:0.8rem'>low IT 18.5; L3 tgt share 19%, snap 59%</td></tr>
+<tr><td class='num'>24</td><td>AJ Barner</td><td class='muted'>SEA</td><td class='muted'>vs. ARI</td><td class='num'>7.7</td><td class='muted' style='font-size:0.8rem'>IT 27.75; L3 tgt share 14%, snap 89%</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section id="sleepers" aria-labelledby="sleepers-heading">
+      <div class="section-label">Sleepers · 5</div>
+      <h2 id="sleepers-heading">Sleeper picks</h2>
+      <p class="lede">Players we like more than consensus this week.</p>
+      <div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Player</th><th>Team</th><th>Opp</th><th>Proj</th><th>Why</th></tr></thead><tbody>
+<tr><td class='num'>1</td><td>Malik Willis</td><td class='muted'>MIA</td><td class='muted'>vs. DET</td><td class='num'>16.9</td><td class='muted' style='font-size:0.8rem'>DET is Margin&#x27;s softest QB defense (+3.1); Willis scored 20.9/26.0/15.6 PPR in his last 3 games (Sleeper)</td></tr>
+<tr><td class='num'>2</td><td>Jonathan Taylor</td><td class='muted'>IND</td><td class='muted'>vs. DAL</td><td class='num'>18.2</td><td class='muted' style='font-size:0.8rem'>Margin RB6 &amp; eDraft RB3 vs FP RB16; DAL a Margin soft-RB defense (+2.3) in a 51.5 total; 19.7 opps/g L3</td></tr>
+<tr><td class='num'>3</td><td>Tyler Allgeier</td><td class='muted'>ARI</td><td class='muted'>at SEA</td><td class='num'>10.9</td><td class='muted' style='font-size:0.8rem'>Only healthy back left from ARI&#x27;s Wk8 rotation (Love ankle, Knight concussion per DK); 36.1 PPR in Wk8; 3rd-most-added player (Margin/Sle…</td></tr>
+<tr><td class='num'>4</td><td>Luther Burden III</td><td class='muted'>CHI</td><td class='muted'>vs. TB</td><td class='num'>15.1</td><td class='muted' style='font-size:0.8rem'>Margin WR5 (20.0 PPR) vs FP WR16; 17.5/23.7/18.6 PPR over Wks 6-8 (Sleeper)</td></tr>
+<tr><td class='num'>5</td><td>Kyle Pitts Sr.</td><td class='muted'>ATL</td><td class='muted'>vs. CIN</td><td class='num'>9.6</td><td class='muted' style='font-size:0.8rem'>CIN is a Margin soft-TE defense (+2.2) in the week&#x27;s top total (52.3); WR Zachariah Branch (hamstring) faces a possible multi-game absenc…</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section id="busts" aria-labelledby="busts-heading">
+      <div class="section-label">Busts · 5</div>
+      <h2 id="busts-heading">Bust calls</h2>
+      <p class="lede">Players we are fading relative to consensus. Re-check Ravens before Thursday night.</p>
+      <div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Player</th><th>Team</th><th>Opp</th><th>Proj</th><th>Why</th></tr></thead><tbody>
+<tr><td class='num'>1</td><td>Zay Flowers</td><td class='muted'>BAL</td><td class='muted'>vs. JAX</td><td class='num'>14.5</td><td class='muted' style='font-size:0.8rem'>Lamar on IR, Huntley &quot;probably&quot; out; Fagnano (ankle) went 10/21, 91 yds, INT in Wk8; BAL implied 16.5</td></tr>
+<tr><td class='num'>2</td><td>Derrick Henry</td><td class='muted'>BAL</td><td class='muted'>vs. JAX</td><td class='num'>13.4</td><td class='muted' style='font-size:0.8rem'>BAL implied 16.5 as 9.5-pt home dog; 51% snaps &amp; &lt;2 tgts/g over Wks 6-8 (Sleeper); only 23 of 51 snaps in Wk8 (Sleeper)</td></tr>
+<tr><td class='num'>3</td><td>Tetairoa McMillan</td><td class='muted'>CAR</td><td class='muted'>vs. DEN</td><td class='num'>13.4</td><td class='muted' style='font-size:0.8rem'>Under 60 yds in each of last 2 games; DEN has allowed the 4th-fewest WR fantasy pts (CBS/SportsLine)</td></tr>
+<tr><td class='num'>4</td><td>Saquon Barkley</td><td class='muted'>PHI</td><td class='muted'>vs. NYG</td><td class='num'>12.4</td><td class='muted' style='font-size:0.8rem'>Hamstring/back, in and out of Wk8 (22 of 69 snaps); Elijah Mitchell had 11 carries; PHI implied 18.0</td></tr>
+<tr><td class='num'>5</td><td>Ashton Jeanty</td><td class='muted'>LV</td><td class='muted'>at SF</td><td class='num'>12.9</td><td class='muted' style='font-size:0.8rem'>LV is a 10-pt road dog (implied 20.75); Jeanty 56% snaps &amp; 12.7 opps/g over Wks 6-8 (Sleeper), weak volume for an RB2</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section>
+      <div class="section-label">Last week</div>
+      <h2>Week 8 report card</h2>
+      <p class="lede">See how last week’s list graded in half-PPR.</p>
+      <p><a href="week-8.html" style="color:var(--red);font-weight:800;text-decoration:none">Open Week 8 grades →</a></p>
+    </section>
+
+    <footer>
+      <p><strong>© 2026 Fantasy Lifeline.</strong> Informational only, not betting advice. 21+. Not affiliated with the NFL.</p>
+      <p style="margin-top:0.5rem"><a href="index.html">Home</a> · <a href="week-8.html">Week 8</a> · <a href="week-9.html">Week 9</a></p>
+    </footer>
+  </div>
+
+</body>
+</html>
